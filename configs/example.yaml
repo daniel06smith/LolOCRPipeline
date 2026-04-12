@@ -1,0 +1,15 @@
+sample_every_seconds: 5
+source: video
+tesseract_cmd: "C:/Program Files/Tesseract-OCR/tesseract.exe"
+tracked_player: "nytebyte11#8558"
+profile:
+  resolution: [1920, 1080]
+  ui_scale: 1.0
+  side: spectator
+  hud:
+    timer: {x: 935, y: 18, w: 58, h: 26}
+    blue_kills: {x: 825, y: 17, w: 38, h: 26}
+    red_kills: {x: 1055, y: 17, w: 38, h: 26}
+    blue_gold: {x: 725, y: 16, w: 70, h: 27}
+    red_gold: {x: 1125, y: 16, w: 70, h: 27}
+    minimap: {x: 1650, y: 810, w: 260, h: 260}
