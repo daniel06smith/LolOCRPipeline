@@ -1,0 +1,39 @@
+sample_every_seconds: 5
+source: video
+profile:
+  resolution:
+  - 1920
+  - 1080
+  ui_scale: 1.0
+  side: spectator
+  hud:
+    timer:
+      x: 937
+      y: 74
+      w: 56
+      h: 25
+    blue_kills:
+      x: 914
+      y: 19
+      w: 34
+      h: 36
+    red_kills:
+      x: 984
+      y: 18
+      w: 33
+      h: 36
+    blue_gold:
+      x: 799
+      y: 10
+      w: 66
+      h: 33
+    red_gold:
+      x: 1105
+      y: 9
+      w: 58
+      h: 36
+    minimap:
+      x: 1651
+      y: 809
+      w: 260
+      h: 239

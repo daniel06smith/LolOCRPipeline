@@ -1,0 +1,50 @@
+{
+  "sample_every_seconds": 5,
+  "source": "video",
+  "profile": {
+    "resolution": [
+      1920,
+      1080
+    ],
+    "ui_scale": 1.0,
+    "side": "spectator",
+    "hud": {
+      "timer": {
+        "x": 944,
+        "y": 78,
+        "w": 44,
+        "h": 18
+      },
+      "blue_kills": {
+        "x": 921,
+        "y": 20,
+        "w": 23,
+        "h": 31
+      },
+      "red_kills": {
+        "x": 988,
+        "y": 19,
+        "w": 24,
+        "h": 34
+      },
+      "blue_gold": {
+        "x": 799,
+        "y": 16,
+        "w": 59,
+        "h": 23
+      },
+      "red_gold": {
+        "x": 1105,
+        "y": 15,
+        "w": 60,
+        "h": 25
+      },
+      "minimap": {
+        "x": 1653,
+        "y": 812,
+        "w": 257,
+        "h": 232
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-sample_every_seconds: 5
+sample_every_seconds: 30
 source: video
 tesseract_cmd: "C:/Program Files/Tesseract-OCR/tesseract.exe"
 tracked_player: "nytebyte11#8558"
