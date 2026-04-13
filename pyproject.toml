@@ -30,6 +30,9 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+markers = [
+  "integration: tests that require local sample frame fixtures",
+]
 
 [tool.ruff]
 line-length = 100

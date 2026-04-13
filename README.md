@@ -69,6 +69,23 @@ uv run atlas-ocr run --config configs/example.yaml --output artifacts/extraction
 
 (Stop with Ctrl+C after desired capture duration.)
 
+
+## Test with a single sample frame
+
+1. Save one replay screenshot/frame as `tests/fixtures/sample_frame.png`.
+2. Create ROIs for that frame:
+   ```bash
+   uv run atlas-calibrate tests/fixtures/sample_frame.png --out tests/fixtures/sample_frame_config.yaml
+   ```
+   (You can rename JSON->YAML format manually, or create the YAML directly using `configs/example.yaml` as template.)
+3. Create `tests/fixtures/sample_frame_expected.json` with values you expect from that frame.
+4. Run the integration test:
+   ```bash
+   uv run pytest -m integration -k sample_frame -q
+   ```
+
+The test skips automatically if fixture files are missing.
+
 ## Project layout
 
 ```text

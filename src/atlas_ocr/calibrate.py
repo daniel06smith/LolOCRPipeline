@@ -4,9 +4,17 @@ import json
 from pathlib import Path
 
 import cv2
+import yaml
 
 
 TARGETS = ["timer", "blue_kills", "red_kills", "blue_gold", "red_gold", "minimap"]
+
+
+def _write_landmarks(payload: dict, out_path: Path) -> None:
+    if out_path.suffix.lower() in {".yaml", ".yml"}:
+        out_path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
+    else:
+        out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def main() -> None:
@@ -14,7 +22,7 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Interactive ROI calibration for Atlas HUD landmarks.")
     parser.add_argument("image", help="Path to screenshot/frame from replay spectator HUD")
-    parser.add_argument("--out", default="configs/landmarks.json", help="Output path")
+    parser.add_argument("--out", default="configs/landmarks.json", help="Output path (.json or .yaml)")
     args = parser.parse_args()
 
     frame = cv2.imread(args.image)
@@ -29,15 +37,19 @@ def main() -> None:
         rois[target] = {"x": x, "y": y, "w": w, "h": h}
 
     out = {
-        "resolution": [int(frame.shape[1]), int(frame.shape[0])],
-        "ui_scale": 1.0,
-        "side": "spectator",
-        "hud": rois,
+        "sample_every_seconds": 5,
+        "source": "video",
+        "profile": {
+            "resolution": [int(frame.shape[1]), int(frame.shape[0])],
+            "ui_scale": 1.0,
+            "side": "spectator",
+            "hud": rois,
+        },
     }
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    _write_landmarks(out, out_path)
     print(f"Saved landmark template to {out_path}")
 
 
